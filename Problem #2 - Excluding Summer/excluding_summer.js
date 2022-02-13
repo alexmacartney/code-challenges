@@ -5,7 +5,7 @@ function excluding_summer (list) {
         for (let j = 0; j < list.length; j++) {
             if (j != i) {
                 outputList[i] *= list[j];
-            };
+            }
         };
     };
     return outputList;

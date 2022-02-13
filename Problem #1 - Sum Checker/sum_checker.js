@@ -6,7 +6,7 @@ function sum_checker (list, target) {
             if (addedArray[j] == target) {
                 //return String(list[i]).concat(' and ', String(list[j]), ' sum to ', String(target), '!');
                 return true;
-            };
+            }
         };
     };
     //return 'Nothing sums to '.concat(target, '... :(');
