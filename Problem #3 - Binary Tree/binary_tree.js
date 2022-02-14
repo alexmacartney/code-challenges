@@ -117,17 +117,19 @@ testTree.insert(12, 121, 'BG', { right: true });
 function serialize(root) {
     if (root.isLeaf) {
         let outputString = root.value.concat('##');
-        return outputString
+        return outputString;
     } if (root.right === null) {
         let outputString = root.value.concat(serialize(root.left),'#');
-        return outputString
+        return outputString;
     } if (root.left === null) {
         let outputString = root.value.concat('#',serialize(root.right));
-        return outputString
+        return outputString;
     } else {
         let outputString = root.value.concat(serialize(root.left), serialize(root.right));
-        return outputString
+        return outputString;
     }
 }
+
+let inputString = 'ABAC##BC#BG##'
 
 console.log(serialize(testTree.root));
