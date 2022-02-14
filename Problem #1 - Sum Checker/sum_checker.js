@@ -17,3 +17,5 @@ let list = [10, 15, 3, 7];
 let target = 17;
 
 console.log(sum_checker(list, target));
+
+// Use sets to achieve O(N).

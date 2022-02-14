@@ -116,20 +116,26 @@ testTree.insert(12, 121, 'BG', { right: true });
 
 function serialize(root) {
     if (root.isLeaf) {
-        let outputString = root.value.concat('##');
+        let outputString = root.value.concat(' # # ');
         return outputString;
     } if (root.right === null) {
-        let outputString = root.value.concat(serialize(root.left),'#');
+        let outputString = root.value.concat(serialize(root.left), ' # ');
         return outputString;
     } if (root.left === null) {
-        let outputString = root.value.concat('#',serialize(root.right));
+        let outputString = root.value.concat(' # ', serialize(root.right));
         return outputString;
     } else {
-        let outputString = root.value.concat(serialize(root.left), serialize(root.right));
+        let outputString = root.value.concat(' ',serialize(root.left), serialize(root.right));
         return outputString;
     }
 }
 
-let inputString = 'ABAC##BC#BG##'
+//console.log(serialize(testTree.root));
 
-console.log(serialize(testTree.root));
+function deserialize(inputString) {
+    blah
+}
+
+let inputString = 'AB AC # # BC # BG # # '
+
+console.log(deserialize(inputString));

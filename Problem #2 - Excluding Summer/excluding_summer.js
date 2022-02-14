@@ -18,3 +18,6 @@ console.log(excluding_summer(list));
 list = [3, 2, 1];
 
 console.log(excluding_summer(list));
+
+// Use two for loops to multiply the values before and after each index.
+// Use a final for loop to combine the above two outputs.
