@@ -121,15 +121,15 @@ function serialize(tree) {
         if (root.isLeaf) {
             updatedOutputString = outputString.concat('##');
         }
-        if (root.left != null) {
+        if (root.left) {
+            updatedOutputString = outputString.concat('#');
+        } else {
             serializeHelper(root.left, updatedOutputString);
-        } else {
-            updatedOutputString = outputString.concat('#');
         }
-        if (root.right != null) {
-            serializeHelper(root.right, updatedOutputString);
-        } else {
+        if (root.right) {
             updatedOutputString = outputString.concat('#');
+        } else {
+            serializeHelper(root.right, updatedOutputString);
         }
         return updatedOutputString;
     }
