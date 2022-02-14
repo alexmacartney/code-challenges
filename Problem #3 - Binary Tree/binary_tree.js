@@ -121,10 +121,10 @@ function serialize(root) {
     } if (root.right === null) {
         let outputString = root.value.concat(serialize(root.left),'#');
         return outputString
-    }   if (root.left === null) {
+    } if (root.left === null) {
         let outputString = root.value.concat('#',serialize(root.right));
         return outputString
-    }else {
+    } else {
         let outputString = root.value.concat(serialize(root.left), serialize(root.right));
         return outputString
     }
