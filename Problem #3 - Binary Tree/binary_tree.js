@@ -114,7 +114,7 @@ testTree.remove(12);
 testTree.insert(1, 12, 'BC');
 testTree.insert(12, 121, 'BG', { right: true });
 
-function serialize(testTree) {
+function serialize(tree) {
     let outputString = '';
     function serializeHelper(root, outputString) {
         updatedOutputString = outputString.concat(root.value);
@@ -133,7 +133,7 @@ function serialize(testTree) {
         }
         return updatedOutputString;
     }
-    return serializeHelper(testTree, outputString);
+    return serializeHelper(tree.root, outputString);
 }
 
 console.log(serialize(testTree));
