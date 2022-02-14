@@ -18,4 +18,4 @@ let target = 17;
 
 console.log(sum_checker(list, target));
 
-// Use sets to achieve O(N).
+// Use target - each input value and compare with the input values in a set to achieve O(N).
