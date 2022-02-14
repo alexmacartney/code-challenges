@@ -114,26 +114,20 @@ testTree.remove(12);
 testTree.insert(1, 12, 'BC');
 testTree.insert(12, 121, 'BG', { right: true });
 
-function serialize(tree) {
-    let outputString = '';
-    function serializeHelper(root, outputString) {
-        updatedOutputString = outputString.concat(root.value);
-        if (root.isLeaf) {
-            updatedOutputString = outputString.concat('##');
-        }
-        if (root.left) {
-            updatedOutputString = outputString.concat('#');
-        } else {
-            serializeHelper(root.left, updatedOutputString);
-        }
-        if (root.right) {
-            updatedOutputString = outputString.concat('#');
-        } else {
-            serializeHelper(root.right, updatedOutputString);
-        }
-        return updatedOutputString;
+function serialize(root) {
+    if (root.isLeaf) {
+        let outputString = root.value.concat('##');
+        return outputString
+    } if (root.right === null) {
+        let outputString = root.value.concat(serialize(root.left),'#');
+        return outputString
+    }   if (root.left === null) {
+        let outputString = root.value.concat('#',serialize(root.right));
+        return outputString
+    }else {
+        let outputString = root.value.concat(serialize(root.left), serialize(root.right));
+        return outputString
     }
-    return serializeHelper(tree.root, outputString);
 }
 
-console.log(serialize(testTree));
+console.log(serialize(testTree.root));
