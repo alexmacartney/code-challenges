@@ -116,11 +116,11 @@ testTree.insert(12, 121, 'BG', { right: true });
 
 function serialize(root) {
     if (root.isLeaf) {
-        return root.value.concat(' ## ');
+        return root.value.concat(' # # ');
     } if (root.left === null) {
-          return root.value.concat(' #L ', serialize(root.right));
+          return root.value.concat(' # ', serialize(root.right));
     } if (root.right === null) {
-        return root.value.concat(serialize(root.left), ' #R ');
+        return root.value.concat(serialize(root.left), ' # ');
     } else {
         return root.value.concat(' ', serialize(root.left), serialize(root.right));
     }
@@ -138,21 +138,22 @@ function deserialize(inputString) {
 }
 
 function deserializeHelper(inputArray) {
-  for (let i = 0; i < inputArray.length; i++) {
-    if (inputArray[i] = '#R') {
-      blah
-    } if (inputArray[i] = '#L') {
-      blah
-    } if (inputArray[i] = '##') {
-      blah
+  for (let i = 0; i < inputArray.length - 1; i++) {
+    // Need to add some way to keep track of where I am in the tree?
+    if (inputArray[i] === '#' & (inputArray[i - 1] === '#' || inputArray[i + 1] === '#')) {
+      // Leaf (next one is on the right)
+    } if (inputArray[i] === '#') {
+      // Single branch (next one is also on the right?)
     } else {
-      blah
+      // Two branches (next one is on the left)
     }
   }
 }
 
-let inputString = 'AB AC ## BC #L BG ## '
+let inputString = 'AB AC # # BC # BG # # '
 
-let inputArray = ['AB', 'AC', '##', 'BC', '#L',  'BG', '##']
+let inputArray = ['AB', 'AC', '#', '#', 'BC', '#',  'BG', '#', '#']
 
-console.log(deserializeHelper(inputString));
+console.log(deserializeHelper(inputArray));
+
+// Probably better to do this in Python or another object-based language.
