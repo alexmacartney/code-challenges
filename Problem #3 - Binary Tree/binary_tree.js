@@ -116,26 +116,43 @@ testTree.insert(12, 121, 'BG', { right: true });
 
 function serialize(root) {
     if (root.isLeaf) {
-        let outputString = root.value.concat(' # # ');
-        return outputString;
-    } if (root.right === null) {
-        let outputString = root.value.concat(serialize(root.left), ' # ');
-        return outputString;
+        return root.value.concat(' ## ');
     } if (root.left === null) {
-        let outputString = root.value.concat(' # ', serialize(root.right));
-        return outputString;
+          return root.value.concat(' #L ', serialize(root.right));
+    } if (root.right === null) {
+        return root.value.concat(serialize(root.left), ' #R ');
     } else {
-        let outputString = root.value.concat(' ',serialize(root.left), serialize(root.right));
-        return outputString;
+        return root.value.concat(' ', serialize(root.left), serialize(root.right));
     }
 }
 
 //console.log(serialize(testTree.root));
 
 function deserialize(inputString) {
-    blah
+  inputArray = []
+  while (inputString != '') {
+    inputArray.push(inputString.substr(0, inputString.indexOf(' ')));
+    inputString = inputString.substr(inputString.indexOf(' ') + 1);
+  }
+  return deserializeHelper(inputArray)
 }
 
-let inputString = 'AB AC # # BC # BG # # '
+function deserializeHelper(inputArray) {
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] = '#R') {
+      blah
+    } if (inputArray[i] = '#L') {
+      blah
+    } if (inputArray[i] = '##') {
+      blah
+    } else {
+      blah
+    }
+  }
+}
 
-console.log(deserialize(inputString));
+let inputString = 'AB AC ## BC #L BG ## '
+
+let inputArray = ['AB', 'AC', '##', 'BC', '#L',  'BG', '##']
+
+console.log(deserializeHelper(inputString));
