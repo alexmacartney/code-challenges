@@ -157,3 +157,5 @@ let inputArray = ['AB', 'AC', '#', '#', 'BC', '#',  'BG', '#', '#']
 console.log(deserializeHelper(inputArray));
 
 // Probably better to do this in Python or another object-based language.
+
+// https://www.dailycodingproblem.com/solution/3?token=f6d7400607a97bc1fb402e1bdc2158940c393e37ef06209d938abf2568b23913ec2333bf

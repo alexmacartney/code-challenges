@@ -19,3 +19,5 @@ let target = 17;
 console.log(sum_checker(list, target));
 
 // Use target - each input value and compare with the input values in a set to achieve O(N).
+
+// https://www.dailycodingproblem.com/solution/1?token=b6367264b6b34e89a12af0ceef2eefc0a0d920f45250c14443dfef5b852219af40b83021
